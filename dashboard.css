@@ -1,0 +1,224 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F7F3; /* Light gray background */
+    color: #393B63; /* Medium blue text */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #0F0D35; /* Navy blue background */
+    color: #F6F7F3; /* Light gray text */
+}
+
+.navbar h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    cursor: pointer;
+    color: #F6F7F3; /* Light gray text */
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a, button {
+    text-decoration: none;
+    color: #F6F7F3; /* Matches navbar text color */
+    font-size: 16px;
+    border: none;
+    background: none; /* Removes background */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-links a:hover, button:hover {
+    color: #F4BB8A; /* Peach hover effect */
+}
+
+/* Dashboard Container Styling */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #F6F7F3; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.dashboard-container h1, .dashboard-container h2 {
+    text-align: center;
+    color: #0F0D35; /* Navy blue for headers */
+}
+
+/* Card Styling */
+.card {
+    background-color: #F4BB8A; /* Peach highlight */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin: 0;
+    color: #0F0D35; /* Navy blue text */
+}
+
+.card p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #393B63; /* Medium blue border */
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #393B63; /* Medium blue for headers */
+    color: #F6F7F3; /* Light gray text */
+    font-weight: bold;
+}
+
+table td {
+    background-color: #F6F7F3; /* Light gray cells */
+    color: #393B63; /* Medium blue text */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Show hamburger menu on smaller screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links by default */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #0F0D35; /* Navy blue background for dropdown */
+        padding: 15px 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show nav links when hamburger menu is clicked */
+    }
+}
+
+
+/* Styling for Cancel Button */
+form button {
+    padding: 8px 12px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button[name="action"][value="cancel"] {
+    background-color: #C70039; /* Default red for Cancel button */
+    color: white;
+}
+
+form button[name="action"][value="cancel"]:hover {
+    background-color: #F4BB8A; /* Peach hover effect */
+}
+
+form button[name="action"][value="approve"] {
+    background-color: #393B63; /* Default orange for Approve button */
+    color: white;
+}
+
+form button[name="action"][value="approve"]:hover {
+    background-color: #F4BB8A; /* Peach hover effect */
+}
+
+/* Styling for Send Button */
+form button[type="submit"] {
+    padding: 8px 12px;
+    background-color: #393B63; /* Medium blue color for Send button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #F4BB8A; /* Peach hover effect */
+}
+
+
+.dashboard-analysis {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85); /* Light translucent background */
+    border-radius: 10px; /* Smooth rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+.dashboard-analysis h2 {
+    margin-bottom: 20px;
+    color: #FF5733; /* Section heading color */
+    font-size: 24px; /* Slightly larger font size for the title */
+    font-weight: bold; /* Standout title */
+    text-align: center; /* Center-align the heading */
+}
+
+.dashboard-analysis table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.dashboard-analysis th, .dashboard-analysis td {
+    border: 1px solid #ccc; /* Border for cells */
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    font-size: 16px; /* Standard text size for table */
+}
+
+.dashboard-analysis th {
+    background: #393B63; /* Matches "Your Listings" table header */
+    color: white;
+    font-weight: bold;
+}
+
+.dashboard-analysis td {
+    background: rgba(255, 255, 255, 0.95); /* Matches table row background */
+}
+

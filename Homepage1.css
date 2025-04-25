@@ -1,0 +1,356 @@
+/* General Styles */
+body {
+    Font-family: Arial, sans-serif;
+    Margin: 0;
+    Padding: 0;
+    Background: url('welcome-image.jpg') no-repeat center center fixed;
+    Background-size: cover;
+    Backdrop-filter: blur(6px); /* Blurry background */
+    Color: #333;
+}
+
+/* Header */
+.header {
+    Background: rgba(0, 0, 0, 0.8);
+    Color: white;
+    Text-align: center;
+    Padding: 1.5rem 0;
+}
+
+.header-title {
+    Font-size: 2.5rem;
+    Margin: 0;
+    Letter-spacing: 1.5px;
+}
+
+/* Links Section */
+.links {
+    Display: flex;
+    Justify-content: center;
+    Gap: 1rem;
+    Padding: 1rem;
+    Background: rgba(0, 0, 0, 0.7);
+}
+
+.link-item {
+    Text-decoration: none;
+    Color: white;
+    Background: #FF5733;
+    Padding: 0.5rem 1rem;
+    Border-radius: 5px;
+    Transition: all 0.3s ease-in-out;
+}
+
+.link-item:hover {
+    Background: #C70039;
+    Transform: scale(1.1);
+    color: #333;
+}
+
+/* Search Section */
+.search-section {
+    Text-align: center;
+    Margin: 1rem 0;
+}
+
+.search-bar {
+    Padding: 10px;
+    Width: 55%;
+    Border: 1px solid #ccc;
+    Border-radius: 5px;
+}
+
+.search-button {
+    Padding: 10px 1rem;
+    Background: #FF5733;
+    Color: white;
+    Border: none;
+    Border-radius: 5px;
+    Cursor: pointer;
+    Transition: all 0.3s;
+    font-weight: bold;
+}
+
+.search-button:hover {
+    Background: #C70039;
+    color: #333;
+}
+
+/* Filters Section 
+.filters-section {
+    Display: flex;
+    Justify-content: center;
+    Gap: 1rem;
+    Margin: 1rem 0;
+    Flex-wrap: wrap;
+}
+
+.filter-item {
+    Text-align: left;
+    Margin: 0.5rem 0;
+}
+
+.filter-input {
+    Padding: 0.5rem;
+    Border: 1px solid #ccc;
+    Border-radius: 5px;
+    Width: 200px;
+}
+
+.filter-button {
+    Background: #FF5733;
+    Color: white;
+    Border: none;
+    Padding: 0.5rem 1rem;
+    Border-radius: 5px;
+    Cursor: pointer;
+    Transition: all 0.3s;
+} */
+
+.filter-button:hover {
+    Background: #C70039;
+}
+
+/* Filter Section 
+.filters-section {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.85); Light transparent background 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+    max-width: 90%;
+    margin: 1rem auto;
+}
+
+.filter-input {
+    padding: 0.5rem;
+    border: 1.5px solid #ccc;
+    border-radius: 5px;
+}
+
+.filter-button {
+    padding: 0.5rem 1rem;
+    background: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-button:hover {
+    background: #C70039;
+} */
+
+/* General Styles for the Filter Section */
+.filters-section {
+    Background: rgba(29, 23, 23, 0.8);
+    Border-radius: 10px;
+    Padding: 20px;
+    Margin: 20px auto;
+    Max-width: 900px;
+    Box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 85%;
+}
+
+/* Form Container with Flexbox */
+.filters-form {
+    Display: flex;
+    Flex-wrap: wrap;
+    Gap: 15px;
+    Justify-content: space-between;
+    Align-items: center;
+}
+
+/* Filter Items */
+.filter-item {
+    Flex: 1 1 calc(33.33% - 15px); /* Adjust for 3 items per row */
+    Min-width: 250px; /* Prevent shrinking too much */
+}
+
+/* Input and Select Styling */
+.filter-input {
+    Width: 100%;
+    Padding: 10px;
+    margin: 10px 0;
+    Border: 1px solid #ccc;
+    Border-radius: 5px;
+    Font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+.filter-button {
+    Text-decoration: none;
+    Color: white;
+    Background: #FF5733;
+    Padding: 0.5rem 1rem;
+    Border-radius: 5px;
+    Transition: all 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.filter-button:hover {
+    Background: #C70039;
+    Transform: scale(1.1);
+    color: #333;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+    .filter-item {
+        Flex: 1 1 100%; /* Full-width for each item */
+    }
+
+    .filter-button {
+        Margin-top: 10px;
+    }
+}
+  
+
+/* Listings Section */
+.listings-section {
+    Display: flex;
+    Flex-wrap: wrap;
+    Gap: 2rem;
+    Justify-content: center;
+    Padding: 2rem;
+}
+
+.listings {
+    Background: white;
+    Border-radius: 10px;
+    Box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    Padding: 1rem;
+    Transition: transform 0.3s, box-shadow 0.3s;
+    Width: 300px;
+    Cursor: pointer;
+    Position: relative;
+}
+
+.listings:hover {
+    Transform: scale(1.1);
+    Box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.house-image {
+    Width: 100%;
+    Border-radius: 10px;
+    Height: 200px;
+    Object-fit: cover;
+}
+
+.listing-details {
+    Padding: 1rem 0;
+}
+
+.listing-details p {
+    Margin: 0.5rem 0;
+    Font-size: 1rem;
+    font-weight: normal;
+}
+
+/* .view-more-button {
+    Background: #FF5733;
+    Color: white;
+    Border: none;
+    Padding: 0.5rem 1rem;
+    Border-radius: 5px;
+    Cursor: pointer;
+    Width: 100%;
+    Transition: all 0.3s;
+}
+
+.view-more-button:hover {
+    Background: #C70039;
+} */
+
+/* Scroll Effects */
+.listings:nth-child(odd) {
+    /* Background-color: #F9F9C5; */
+    background-color: #333;
+    color:rgb(214, 241, 241);
+}
+
+.listings:nth-child(even) {
+    /* Background-color: #C5F9F9; */
+    background-color: #333;
+    color:rgb(214, 241, 241)
+}
+
+.listings:hover:nth-child(odd),
+.listings:hover:nth-child(even) {
+    /* Background-color: #FFEB99; */
+    background-color:#333;
+} 
+
+/* Footer 
+.footer {
+    Background: rgba(0, 0, 0, 0.8);
+    Color: white;
+    Text-align: center;
+    Padding: 1rem;
+}
+
+.footer-text {
+    Margin: 0;
+    Font-size: 1rem;
+}
+*/
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    padding: 1.5rem 2rem;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-top {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 1rem;
+}
+
+.social-links, .footer-links {
+    display: flex;
+    gap: 1.5rem; /* Space between links */
+}
+
+/* .social-links a, .footer-links a {
+    text-decoration: none;
+    color: #addd;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover, .footer-links a:hover {
+    color: #f39c12;
+} */
+
+.footer-credit {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .social-links, .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+

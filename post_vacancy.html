@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Vacancy</title>
+    <link rel="stylesheet" href="vacancy.css">
+    </head>
+<body>
+    
+    <div class="container">
+        <h1>Post a New Vacancy</h1>
+        <form action="post_vacancy_copy.php" method="POST" enctype="multipart/form-data" id="vacancy-form">
+
+            <label for="listing_name">Hostel Name:</label>
+            <input type="text" id="listing_name" name="listing_name" placeholder="Enter Hostel Name..." required>
+
+            <label for="price">Price (KES):</label>
+            <input type="number" id="price" name="price" placeholder="Rent Price..." required>
+
+            <label for="distance">Distance to campus (KM):</label>
+            <input type="number" id="distance" name="distance" placeholder="Estimated distance in Km..." required>
+
+            <label for="landlord_contact">Landlord Contact:</label>
+            <input type="text" id="landlord_contact" name="landlord_contact" placeholder="Phone Number..." required>
+
+            <label for="email">Landlord Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Email address..." required>
+
+            <label for="number">Vacant rooms:</label>
+            <input type="number" id="vacant_rooms" name="vacant_rooms" placeholder="Enter the current number of vacant rooms..." required>
+
+            <label for="text">Amenities:</label>
+            <input type="text" id="description" name="description" placeholder="List the available Amenities..." required>
+
+           
+
+            <label for="image_path">Upload Image:</label>
+            <div class="file-upload">
+                <input type="file" id="image_path" name="image_path" accept=".png, .jpg, .gif" multiple>
+                <p>Drag and drop files here, or click to upload (PNG, JPG, GIF up to 10MB)</p>
+            </div>
+
+            <button type="submit" name="submit">Post Vacancy</button>
+
+        </form>
+        <p><a href="dashboard2.php">Back to Dashboard</a></p>
+    </div>
+
+
+</body>
+</html>

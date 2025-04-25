@@ -1,0 +1,312 @@
+/* General Body Style */
+:root {
+    --primary-color: #EB5B38;
+    --secondary-color: #272A2D;
+    --background-color: #E6E4DC;
+    --highlight-color: #347CCB;
+    --link-color: #007bff;
+    --card-color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+    background-image: url('Images/six.jpeg');
+    background-size: cover; /* Ensuring the image cover the entire page */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* keeps the image fixed while scrolling */
+    background-position: center;
+    opacity: 0.9;
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2); /* Darkens the baclground Image */
+        z-index: -1; /* Places the overlay behind the content */
+    }
+}
+
+/* Header Style */
+.header {
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    padding: 10px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.header-title {
+    text-align: 28px;
+    font-weight:bold;
+    margin:0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Link Section */
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 15px;
+    gap: 30px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.link-item {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.link-item:hover {
+    color: var(--primary-color);
+}
+.fa-regular.fa-house {
+    font-size: 18px;
+}
+
+/* Additional Styling for Resposiveness */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 22px;
+    }
+
+    .link-item {
+        font-size: 16px;
+    }
+}
+
+/* search section style */
+.search-section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-bottom: 2px solid var(--background-color);
+    gap: 10px;
+}
+
+.search-bar {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+    border-color: var(--primary-color);
+}
+
+
+.search-button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transform: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #333333;
+}
+
+/* Filters Section Styles */
+.filters-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap if they don't fit */
+    justify-content: center; /* Center the filters */
+    align-items: center; /* Align items vertically */
+    background-color: var(--background-color);
+    padding: 20px;
+    border-bottom: 2px solid var(--background-color);
+    gap: 20px; /* Space between filter items */
+    margin: 20px 0; /* Add spacing above and below the section */
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 16px;
+    margin: 0 10px; /* Horizontal margin for spacing */
+}
+
+.filter-item label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.filter-input:focus, .filter-select:focus {
+    border-bottom: var(--primary-color);
+}
+
+.filter-item input {
+    padding: 8px;
+    border: 2px solid var(--background-color);
+    background-color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+}
+
+.filter-button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: cursor;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Design for Filters Section */
+@media (max-width: 600px) {
+    .filters-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-item {
+        width: 100%;
+    }
+    .filter-input, filter-select {
+        width: 100%;
+    }
+}
+
+/* Listings Section Styles */
+.listings-section {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+/*Individual Listing Card */
+.listings {
+    background-color:  white;
+    border: 2px solid var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    height: 100%; /* Ensure the container takes full height */
+    box-sizing: border-box; /* Ensure the padding is included in the height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    
+}
+
+.house-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2px solid var(--background-color);
+}
+
+.listing-details {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    flex-grow: 1; /* Content grows to take up available space */
+}
+
+.listing-details p{
+    margin: 5px 0;
+}
+
+.view-more-button {
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-top: 2px solid var(--background-color);
+    margin-top: auto; /* Push the button to the bottom */
+}
+
+.view-more-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive Design for Listings Section */
+@media (min-width: 768px) and (max-width: 991px) {
+    .listing {
+        flex-direction: row;
+    }
+    .house-image {
+        width:40%;
+        height: auto;
+        border-bottom: none;
+        border-right: 2px solid var(--background-color);
+    }
+    .listing-details {
+        width: 60%;
+        padding: 20px;
+    }
+}
+
+/* Footer Section */
+.footer {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    text-align: center;
+    color: var(--background-color);
+    margin-top: 20px;
+    border-top: 2px solid var(--background-color);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-text {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+

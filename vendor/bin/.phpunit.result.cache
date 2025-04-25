@@ -1,0 +1,1 @@
+{"version":1,"defects":{"LandlordRegistrationTest::testConnectionSuccess":8,"LandlordRegistrationTest::testEmailAndPhoneNumberExist":8},"times":{"LandlordRegistrationTest::testConnectionSuccess":0.034,"LandlordRegistrationTest::testEmailAndPhoneNumberExist":0.005,"LandlordRegistrationTest::testSuccessfulRegistration":0.073}}

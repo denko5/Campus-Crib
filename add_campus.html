@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Campus</title>
+    <link rel="stylesheet" href="vacancy.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Add Campus</h1>
+        <form action="add_campus.php" method="POST" enctype="multipart/form-data" id="vacancy-form">
+
+            <label for="campus">Campus Name:</label>
+            <input type="text" id="campus" name="campus" placeholder="campus name..." required>
+
+            <label for="image_path">Upload Image:</label>
+            <div class="file-upload">
+                <input type="file" id="image_path" name="image_path" accept=".png, .jpg, .gif" multiple>
+                <p>Drag and drop files here, or click to upload (PNG, JPG, GIF up to 10MB)</p>
+            </div>
+
+            <button type="submit" name="submit">Post Campus</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

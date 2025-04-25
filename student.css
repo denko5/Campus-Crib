@@ -1,0 +1,79 @@
+/* General Styles */
+:root {
+    --primary-color: #EB5B38;
+    --secondary-color: #272A2D;
+    --background-color: #E6E4DC;
+    --highlight-color: #347CCB;
+    --link-color: #007bff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('path-to-your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--highlight-color);
+    backdrop-filter: blur(5px); /* To add blur effect */
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--primary-color); /* Matching the orange border color */
+    text-align: center; /* Center form content */
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Single column layout */
+    align-items: center; 
+    gap: 20px; /* Spacing between fields */
+    width: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    font-size: 16px;
+}
+
+button {
+    width: 50%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

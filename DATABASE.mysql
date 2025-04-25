@@ -1,0 +1,214 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema housefy
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema housefy
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `housefy` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `housefy` ;
+
+-- -----------------------------------------------------
+-- Table `housefy`.`campus`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`campus` (
+  `campus_id` INT NOT NULL AUTO_INCREMENT,
+  `campus_name` VARCHAR(255) NOT NULL,
+  `image_path` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`campus_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`landlord`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`landlord` (
+  `landlord_id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(100) NOT NULL,
+  `last_name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `phone_number` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `failed_attempts` INT NULL DEFAULT '0',
+  PRIMARY KEY (`landlord_id`),
+  UNIQUE INDEX `email` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `phone_number` (`phone_number` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`listing`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`listing` (
+  `listing_id` INT NOT NULL AUTO_INCREMENT,
+  `landlord_id` INT NULL DEFAULT NULL,
+  `listing_name` VARCHAR(255) NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `vacant_rooms` INT NOT NULL DEFAULT '20',
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `distance` INT NULL DEFAULT NULL,
+  `image_path` VARCHAR(255) NULL DEFAULT NULL,
+  `landlord_contact` VARCHAR(50) NULL DEFAULT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`listing_id`),
+  INDEX `landlord_id` (`landlord_id` ASC) VISIBLE,
+  CONSTRAINT `listing_ibfk_2`
+    FOREIGN KEY (`landlord_id`)
+    REFERENCES `housefy`.`landlord` (`landlord_id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`student`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`student` (
+  `student_id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(100) NOT NULL,
+  `last_name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `phone_number` VARCHAR(20) NOT NULL,
+  `campus` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `failed_attempts` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`student_id`),
+  UNIQUE INDEX `email` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `phone_number` (`phone_number` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`seller`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`seller` (
+  `seller_id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(100) NOT NULL,
+  `last_name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `phone_number` VARCHAR(20) NOT NULL,
+  `profile_image` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `failed_attempts` INT NULL DEFAULT '0',
+  PRIMARY KEY (`seller_id`),
+  UNIQUE INDEX `email` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `phone_number` (`phone_number` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`message`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`message` (
+  `message_id` INT NOT NULL AUTO_INCREMENT,
+  `student_id` INT NOT NULL,
+  `landlord_id` INT NULL DEFAULT NULL,
+  `seller_id` INT NULL DEFAULT NULL,
+  `message` TEXT NOT NULL,
+  `sent_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `email` VARCHAR(100) NOT NULL,
+  `receiver_email` VARCHAR(100) NOT NULL,
+  `reply` TEXT NULL DEFAULT NULL,
+  `reply_at` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`message_id`),
+  INDEX `student_id` (`student_id` ASC) VISIBLE,
+  INDEX `landlord_id` (`landlord_id` ASC) VISIBLE,
+  INDEX `seller_id` (`seller_id` ASC) VISIBLE,
+  CONSTRAINT `message_ibfk_1`
+    FOREIGN KEY (`student_id`)
+    REFERENCES `housefy`.`student` (`student_id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `message_ibfk_2`
+    FOREIGN KEY (`landlord_id`)
+    REFERENCES `housefy`.`landlord` (`landlord_id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `message_ibfk_3`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `housefy`.`seller` (`seller_id`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 14
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`payment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`payment` (
+  `payment_id` INT NOT NULL AUTO_INCREMENT,
+  `student_id` INT NOT NULL,
+  `listing_id` INT NOT NULL,
+  `transaction_code` VARCHAR(100) NOT NULL,
+  `phone_number` VARCHAR(20) NOT NULL,
+  `amount` DECIMAL(10,2) NOT NULL,
+  `status` ENUM('Pending', 'Approved', 'Cancelled') NOT NULL DEFAULT 'Pending',
+  `paid_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `notification_status` ENUM('Unread', 'Read') NULL DEFAULT 'Unread',
+  PRIMARY KEY (`payment_id`),
+  UNIQUE INDEX `transaction_code` (`transaction_code` ASC) VISIBLE,
+  INDEX `student_id` (`student_id` ASC) VISIBLE,
+  INDEX `listing_id` (`listing_id` ASC) VISIBLE,
+  CONSTRAINT `payment_ibfk_1`
+    FOREIGN KEY (`student_id`)
+    REFERENCES `housefy`.`student` (`student_id`)
+    ON DELETE CASCADE,
+  CONSTRAINT `payment_ibfk_2`
+    FOREIGN KEY (`listing_id`)
+    REFERENCES `housefy`.`listing` (`listing_id`)
+    ON DELETE CASCADE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 23
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `housefy`.`products`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `housefy`.`products` (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `seller_id` INT NOT NULL,
+  `product_name` VARCHAR(100) NOT NULL,
+  `price` DECIMAL(10,2) NOT NULL,
+  `description` TEXT NULL DEFAULT NULL,
+  `product_image_path` VARCHAR(255) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`product_id`),
+  INDEX `seller_id` (`seller_id` ASC) VISIBLE,
+  CONSTRAINT `products_ibfk_1`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `housefy`.`seller` (`seller_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

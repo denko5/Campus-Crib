@@ -1,0 +1,77 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: #FFFFFF; /* White text for high contrast */
+}
+
+/* Welcome Page Background */
+.welcome-page {
+    position: relative;
+    background: url('welcome-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5); /* Soft overlay */
+}
+
+/* Content Styling */
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Welcome Heading */
+.welcome-heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #FF5733; /* Same color as the button */
+    animation: textPop 1s ease-in-out;
+}
+
+/* Subtext */
+.welcome-subtext {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #F4BB8A; /* Peach tone for a warm feel */
+    animation: fadeUp 1.2s ease-in-out;
+}
+
+/* Button Styling */
+.enter-btn {
+    text-decoration: none;
+    color: #FFFFFF;
+    background: linear-gradient(to right, #FF5733, #F4BB8A);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.enter-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes textPop {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}

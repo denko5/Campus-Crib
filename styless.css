@@ -1,0 +1,92 @@
+/* General Styles */
+:root {
+    --primary-color: #EB5B38;
+    --secondary-color: #272A2D;
+    --background-color: #E6E4DC;
+    --back-color: #021b35;
+    --highlight-color: #347CCB;
+    --link-color: #007bff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    background: url('welcome-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-color: var(--background-color);
+    backdrop-filter: blur(8px);
+    margin: 0;
+    padding: 20px;
+    justify-content: center;  
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--background-color);
+}
+
+
+h1, h2 {
+    color: var(--back-color);
+    align-items: center;
+}
+
+
+form {
+    margin: 0 auto;
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.5); /* Darker background with transparency */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    border-radius: 15px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow effect */
+    text-align: center;
+}
+
+
+input[type="text"], select, input[type="email"], input[type="password"], input[type='number'], select[name="role"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: var(--background-color);
+    color:black;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--back-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--back-color);
+    color:var(--primary-color)
+}
+
+a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

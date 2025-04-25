@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Remove Vacancy</title>
+    <link rel="stylesheet" href="remove_vacancy.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Remove Vacancy</h1>
+        </header>
+        <form method="POST" action="remove_vacancy.php">
+            <label for="vacancy_id">Enter Vacancy ID to Remove:</label>
+            <input type="number" name="vacancy_id" required><br><br>
+            <button type="submit" name="remove_vacancy">Remove Vacancy</button>
+        </form>
+        <p><a href="dashboard2.php">Back to Dashboard</a></p>
+    </div>
+    
+</body>
+</html>

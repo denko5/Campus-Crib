@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #EB5B38;
+    --secondary-color: #272A2D;
+    --background-color: #E6E4DC;
+    --highlight-color: #347CCB;
+    --link-color: #007bff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    color: var(--highlight-color);
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: var(--secondary-color);
+    color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+}
+
+form    {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+input, button {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+input[type="text"] {
+    background: var(--background-color);
+    color: var(--secondary-color);
+}
+
+.file-upload {
+    border: 2px dashed var(--highlight-color);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.file-upload p {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--background-color);
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--highlight-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    button, input {
+        font-size: 0.9em;
+    }
+}
