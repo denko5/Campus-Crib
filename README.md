@@ -1,3 +1,4 @@
+![housing](housing.PNG)
 # 🏠 CAMPUS CRIB : Student Housing Finder Platform
 
 **📊 A PropTech Solution | 💻 Simplifying Student Housing | 🌍 Social Impact**
